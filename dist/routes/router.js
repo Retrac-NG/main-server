@@ -7,7 +7,7 @@ const user_routes_1 = __importDefault(require("./user.routes"));
 const device_routes_1 = __importDefault(require("./device.routes"));
 const express_1 = require("express");
 const AppRouter = (0, express_1.Router)();
-/* ====== Root Route */
+// Root
 AppRouter.get('/', (req, res) => {
     res.status(200).json({ status: 200, message: '[⚡Server]: Server is  up' });
 });

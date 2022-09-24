@@ -9,8 +9,8 @@
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 [![Platform](https://img.shields.io/badge/platform-reddit-orange.svg)](https://www.reddit.com/user/Wordbook_Bot)
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/Retrac-NG/main-server/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/Retrac-NG/main-server/pulls)
+[![GitHub Issues](https://img.shields.io/github/issues/Retrac-NG/main-server.svg)](https://github.com/Retrac-NG/main-server/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Retrac-NG/main-server.svg)](https://github.com/Retrac-NG/main-server/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
