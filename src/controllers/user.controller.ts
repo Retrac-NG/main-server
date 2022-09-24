@@ -1,4 +1,5 @@
 import { Request, NextFunction } from 'express';
+import userService from '../services/user.service';
 import CustomError from '../utils/customError.utils';
 import { CustomResponseInterface } from '../typescript/interfaces/customResponse.interface';
 
@@ -22,7 +23,7 @@ class user_ctrl {
    */
   async CREATE(req: Request, res: CustomResponseInterface) {
     const userData = req.body;
-    const queryData = ''; // await userService.CREATE(userData);
+    const queryData = await userService.CREATE(userData);
     console.info(queryData);
     res.created(queryData, 'New user');
   }
@@ -34,7 +35,7 @@ class user_ctrl {
    * @returns List of all users
    */
   async GET(req: Request, res: CustomResponseInterface) {
-    const queryData = ''; // await userService.GET();
+    const queryData = await userService.GET();
     res.found(queryData, 'All users');
   }
 
@@ -50,7 +51,7 @@ class user_ctrl {
     next: NextFunction
   ) {
     const userId = req.params.id;
-    const queryData = ''; // await userService.GET_BY_ID(userId);
+    const queryData = await userService.GET_BY_ID(userId);
 
     // ======= check for null data -->
     queryData === null
@@ -66,7 +67,7 @@ class user_ctrl {
    */
   async UPDATE(req: Request, res: CustomResponseInterface) {
     const updateData = req.body;
-    const queryData = ''; //  await userService.UPDATE(updateData);
+    const queryData = await userService.UPDATE(updateData);
     res.updated(queryData, 'All users');
   }
 
@@ -79,7 +80,7 @@ class user_ctrl {
   async UPDATE_BY_ID(req: Request, res: CustomResponseInterface) {
     const userId = req.params.id;
     const updateData = req.body;
-    const queryData = ''; //  await userService.UPDATE_BY_ID(userId, updateData);
+    const queryData = await userService.UPDATE_BY_ID(userId, updateData);
     res.updated(queryData, 'Single user');
   }
 
@@ -91,7 +92,7 @@ class user_ctrl {
    */
   async DELETE(req: Request, res: CustomResponseInterface, next: NextFunction) {
     const userId = req.params.id;
-    const queryData = ''; //  await userService.DELETE(userId);
+    const queryData = await userService.DELETE(userId);
 
     // ======= check if delete count is more than 0 -->
     queryData === null

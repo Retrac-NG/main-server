@@ -25,8 +25,8 @@
     "monospaceLinks": false,
     "search": true,
     "better-docs": {
-      "name": "TRANSOL DOCS",
-      "logo": "./src/public/ReTrac Logo-02.png",
+      "name": "ReTrac Docs",
+      "logo": "src/public/ReTrac-Logo-02.png",
       "title": "Retrac Server Docs",
       "css": "style.css",
       "trackingCode": "tracking-code-which-will-go-to-the-HEAD",
@@ -37,7 +37,7 @@
           "href": "https://github.com/SoftwareBrothers/admin-bro"
         },
         {
-          "label": "Example Application",
+          "label": "Front-end Repo",
           "href": "https://admin-bro-example-app-staging.herokuapp.com/admin"
         }
       ]

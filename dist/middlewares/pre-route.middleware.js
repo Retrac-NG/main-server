@@ -8,6 +8,14 @@ const morgan_1 = __importDefault(require("morgan"));
 const helmet_1 = __importDefault(require("helmet"));
 const router_1 = __importDefault(require("../routes/router"));
 const Error_middleware_1 = __importDefault(require("./Error.middleware"));
+/**
+ *
+ * Adds all middleware to the
+ * @category Middlewares
+ * @param {Express} app - Express App instance
+ *
+ * @returns {void}
+ */
 const preRoute = (app) => {
     !app &&
         console.warn('[⚠️warn]: pre-route middleware expected an app instance but got nothing');

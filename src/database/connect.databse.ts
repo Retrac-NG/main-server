@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
-import {env} from '../config/env.config';
+import { env } from '../config/env.config';
 
 const mongoConnect = async () => {
   console.info('Trying mongo connection...');
 
   mongoose.connect(
-    env.MONGO_URL,
+    env.MONGO_URL!,
     {
       keepAlive: true,
       connectTimeoutMS: 60000,

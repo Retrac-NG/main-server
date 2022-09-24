@@ -7,7 +7,7 @@
   tracking-code-which-will-go-to-the-HEAD
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Retrac Server Docs middlewares/Response.middleware.js</title>
+  <title>Retrac Server Docs middlewares/pre-route.middleware.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -104,7 +104,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>middlewares/Response.middleware.js</h1>
+                    <h1>middlewares/pre-route.middleware.js</h1>
                 </header>
                 
 
@@ -118,82 +118,33 @@ var __importDefault = (this &amp;&amp; this.__importDefault) || function (mod) {
     return (mod &amp;&amp; mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const customResponse_utils_1 = __importDefault(require("../utils/customResponse.utils"));
+const cors_1 = __importDefault(require("cors"));
+const morgan_1 = __importDefault(require("morgan"));
+const helmet_1 = __importDefault(require("helmet"));
+const router_1 = __importDefault(require("../routes/router"));
+const Error_middleware_1 = __importDefault(require("./Error.middleware"));
 /**
  *
- * Wrapper function for routes to set Pre-defined response methods
- * @param {Router} Route - Root route to use the Response middleware
- * @returns List of pre-defined response methods to be used in query response. theses are passed on to the next middleware/controller by calling next()
- *
+ * Adds all middleware to the
  * @category Middlewares
+ * @param {Express} app - Express App instance
  *
- * @property {Method} success - Method for undefined queries
- * @property {Method} created - Response for create queries
- * @property {Method} found - Method for find/get queries
- * @property {Method} updated - Method for update queries
- * @property {Method} deleted - Method for delete queries
- *
- * @example &lt;caption>Using the middleware on a route&lt;/caption>
- * // Import middleware into route or root route
- * const Response = require('path/to/middleware')
- * const {Router} = require('express')
- *
- * // set route
- * const AppRoute = Router()
- * // wrap route at top level with Response middleware
- * Response(AppRoute)
- * // Apply other routes or middlewares below
- *
- * @example &lt;caption>Using the methods to return response data inside a middleware or controller&lt;/caption>
- * // there is no need for imports as the methods are added to the res object
- * async GET_USER(req, res) {
- * const queryData = await user_service.GET_USER()
- * res.found(queryData, 'All Users')
- * }
- *
- * @class
+ * @returns {void}
  */
-const Response = (Route) => {
-    if (!Route)
-        return console.warn('Response Middleware requires 1 parameter(Route) but got nothing');
-    Route.use((req, res, next) => {
-        // ======= success response -->
-        res.success = (data, target) => {
-            // prettier-ignore
-            return res
-                .status(200)
-                .json(new customResponse_utils_1.default(target ? `${target} [successful]` : 'Success', data, true));
-        };
-        // ======= created response -->
-        res.created = (data, target) => {
-            //   prettier-ignore
-            return res
-                .status(201)
-                .json(new customResponse_utils_1.default(target ? `${target} [created]` : 'Created', data, true));
-        };
-        // ======= found response -->
-        res.found = (data, target) => {
-            //   prettier-ignore
-            return res
-                .status(200)
-                .json(new customResponse_utils_1.default(target ? `${target} [found]` : 'Found', data, true));
-        };
-        // ======= Update response -->
-        res.updated = (data, target) => {
-            return res
-                .status(202)
-                .json(new customResponse_utils_1.default(target ? `${target} [updated]` : 'updated', data, true));
-        };
-        // ======= Delete response -->
-        res.deleted = (data, target) => {
-            return res
-                .status(200)
-                .json(new customResponse_utils_1.default(target ? `${target} [deleted]` : 'deleted', data, false));
-        };
-        next();
-    });
+const preRoute = (app) => {
+    !app &amp;&amp;
+        console.warn('[⚠️warn]: pre-route middleware expected an app instance but got nothing');
+    // prettier-ignore
+    app &amp;&amp;
+        app
+            .use((0, cors_1.default)())
+            .use((0, helmet_1.default)())
+            .use((0, morgan_1.default)('[:method - :status] :url :response-time ms'))
+            .use(router_1.default);
+    // Add error middleware
+    app &amp;&amp; (0, Error_middleware_1.default)(app);
 };
-exports.default = Response;
+exports.default = preRoute;
 </code></pre>
         </article>
     </section>

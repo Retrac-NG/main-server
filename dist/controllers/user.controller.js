@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const user_service_1 = __importDefault(require("../services/user.service"));
 const customError_utils_1 = __importDefault(require("../utils/customError.utils"));
 /**
  * User controller for route handling
@@ -34,7 +35,7 @@ class user_ctrl {
     CREATE(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const userData = req.body;
-            const queryData = ''; // await userService.CREATE(userData);
+            const queryData = yield user_service_1.default.CREATE(userData);
             console.info(queryData);
             res.created(queryData, 'New user');
         });
@@ -47,7 +48,7 @@ class user_ctrl {
      */
     GET(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const queryData = ''; // await userService.GET();
+            const queryData = yield user_service_1.default.GET();
             res.found(queryData, 'All users');
         });
     }
@@ -60,7 +61,7 @@ class user_ctrl {
     GET_BY_ID(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             const userId = req.params.id;
-            const queryData = ''; // await userService.GET_BY_ID(userId);
+            const queryData = yield user_service_1.default.GET_BY_ID(userId);
             // ======= check for null data -->
             queryData === null
                 ? next(new customError_utils_1.default(`No user found with ID ${userId}`, 404))
@@ -76,7 +77,7 @@ class user_ctrl {
     UPDATE(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const updateData = req.body;
-            const queryData = ''; //  await userService.UPDATE(updateData);
+            const queryData = yield user_service_1.default.UPDATE(updateData);
             res.updated(queryData, 'All users');
         });
     }
@@ -90,7 +91,7 @@ class user_ctrl {
         return __awaiter(this, void 0, void 0, function* () {
             const userId = req.params.id;
             const updateData = req.body;
-            const queryData = ''; //  await userService.UPDATE_BY_ID(userId, updateData);
+            const queryData = yield user_service_1.default.UPDATE_BY_ID(userId, updateData);
             res.updated(queryData, 'Single user');
         });
     }
@@ -103,7 +104,7 @@ class user_ctrl {
     DELETE(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             const userId = req.params.id;
-            const queryData = ''; //  await userService.DELETE(userId);
+            const queryData = yield user_service_1.default.DELETE(userId);
             // ======= check if delete count is more than 0 -->
             queryData === null
                 ? next(new customError_utils_1.default('No found document to be deleted', 404))

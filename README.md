@@ -1,14 +1,13 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="./src/public/ReTrac-Logo-01.png" alt="Bot logo"></a>
+ <img width=300px height=100px src="./src/public/ReTrac-Logo-01.png" alt="ReTrac NG logo"></a>
 </p>
 
-<h3 align="center">server</h3>
+<h3 align="center">ReTrac NG Server</h3>
 
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![Platform](https://img.shields.io/badge/platform-reddit-orange.svg)](https://www.reddit.com/user/Wordbook_Bot)
 [![GitHub Issues](https://img.shields.io/github/issues/Retrac-NG/main-server.svg)](https://github.com/Retrac-NG/main-server/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Retrac-NG/main-server.svg)](https://github.com/Retrac-NG/main-server/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)

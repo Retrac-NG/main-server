@@ -5,6 +5,14 @@ import { Express } from 'express';
 import AppRouter from '../routes/router';
 import ErrorMiddleware from './Error.middleware';
 
+/**
+ *
+ * Adds all middleware to the
+ * @category Middlewares
+ * @param {Express} app - Express App instance
+ *
+ * @returns {void}
+ */
 const preRoute = (app: Express): void => {
   !app &&
     console.warn(
