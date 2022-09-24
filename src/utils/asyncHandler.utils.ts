@@ -26,4 +26,4 @@ const asyncHandler =
     .catch((error) => next(new CustomError(error.message || error.name)))
   };
 
-module.exports = asyncHandler;
+export default asyncHandler;

@@ -26,4 +26,4 @@ const asyncHandler = (func) => (req, res, next) => {
         .resolve(func(req, res, next))
         .catch((error) => next(new customError_utils_1.default(error.message || error.name)));
 };
-module.exports = asyncHandler;
+exports.default = asyncHandler;

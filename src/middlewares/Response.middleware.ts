@@ -1,10 +1,11 @@
 import CustomResponse from '../utils/customResponse.utils';
-import { Express, Request, Response, NextFunction, Router } from 'express';
+import { Express, Request, NextFunction, Router } from 'express';
+import { CustomResponseInterface } from '../typescript/interfaces/customResponse.interface';
 
 /**
  *
  * Wrapper function for routes to set Pre-defined response methods
- * @param {Express.Router()} Route - Root route to use the Response middleware
+ * @param {Router} Route - Root route to use the Response middleware
  * @returns List of pre-defined response methods to be used in query response. theses are passed on to the next middleware/controller by calling next()
  *
  * @category Middlewares
@@ -30,7 +31,7 @@ import { Express, Request, Response, NextFunction, Router } from 'express';
  * // there is no need for imports as the methods are added to the res object
  * async GET_USER(req, res) {
  * const queryData = await user_service.GET_USER()
- * res.found(queryData, 'ALl Users')
+ * res.found(queryData, 'All Users')
  * }
  *
  * @class
@@ -41,57 +42,59 @@ const Response = (Route: Router) => {
       'Response Middleware requires 1 parameter(Route) but got nothing'
     );
 
-  Route.use((req: Request, res: Response, next: NextFunction) => {
-    // ======= success response -->
-    res.success = (data, target) => {
-      // prettier-ignore
-      return res
+  Route.use(
+    (req: Request, res: CustomResponseInterface, next: NextFunction) => {
+      // ======= success response -->
+      res.success = (data: any, target: string) => {
+        // prettier-ignore
+        return res
               .status(200)
               .json(new CustomResponse(target ? `${target} [successful]`:'Success' , data, true));
-    };
-    // ======= created response -->
-    res.created = (data, target) => {
-      //   prettier-ignore
-      return res
+      };
+      // ======= created response -->
+      res.created = (data: any, target: string) => {
+        //   prettier-ignore
+        return res
             .status(201)
             .json(new CustomResponse(target? `${target} [created]`:'Created', data, true))
-    };
+      };
 
-    // ======= found response -->
-    res.found = (data, target) => {
-      //   prettier-ignore
-      return res
+      // ======= found response -->
+      res.found = (data: any, target: string) => {
+        //   prettier-ignore
+        return res
           .status(200)
           .json(new CustomResponse(target? `${target} [found]`:'Found', data, true))
-    };
+      };
 
-    // ======= Update response -->
-    res.updated = (data, target) => {
-      return res
-        .status(202)
-        .json(
-          new CustomResponse(
-            target ? `${target} [updated]` : 'updated',
-            data,
-            true
-          )
-        );
-    };
+      // ======= Update response -->
+      res.updated = (data: any, target: string) => {
+        return res
+          .status(202)
+          .json(
+            new CustomResponse(
+              target ? `${target} [updated]` : 'updated',
+              data,
+              true
+            )
+          );
+      };
 
-    // ======= Delete response -->
-    res.deleted = (data, target) => {
-      return res
-        .status(200)
-        .json(
-          new CustomResponse(
-            target ? `${target} [deleted]` : 'deleted',
-            data,
-            null
-          )
-        );
-    };
-    next();
-  });
+      // ======= Delete response -->
+      res.deleted = (data: any, target: string) => {
+        return res
+          .status(200)
+          .json(
+            new CustomResponse(
+              target ? `${target} [deleted]` : 'deleted',
+              data,
+              false
+            )
+          );
+      };
+      next();
+    }
+  );
 };
 
-module.exports = Response;
+export default Response;

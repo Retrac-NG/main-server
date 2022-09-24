@@ -7,7 +7,7 @@ const customResponse_utils_1 = __importDefault(require("../utils/customResponse.
 /**
  *
  * Wrapper function for routes to set Pre-defined response methods
- * @param {Express.Router()} Route - Root route to use the Response middleware
+ * @param {Router} Route - Root route to use the Response middleware
  * @returns List of pre-defined response methods to be used in query response. theses are passed on to the next middleware/controller by calling next()
  *
  * @category Middlewares
@@ -33,7 +33,7 @@ const customResponse_utils_1 = __importDefault(require("../utils/customResponse.
  * // there is no need for imports as the methods are added to the res object
  * async GET_USER(req, res) {
  * const queryData = await user_service.GET_USER()
- * res.found(queryData, 'ALl Users')
+ * res.found(queryData, 'All Users')
  * }
  *
  * @class
@@ -73,9 +73,9 @@ const Response = (Route) => {
         res.deleted = (data, target) => {
             return res
                 .status(200)
-                .json(new customResponse_utils_1.default(target ? `${target} [deleted]` : 'deleted', data, null));
+                .json(new customResponse_utils_1.default(target ? `${target} [deleted]` : 'deleted', data, false));
         };
         next();
     });
 };
-module.exports = Response;
+exports.default = Response;

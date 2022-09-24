@@ -1,5 +1,6 @@
 import CustomResponse from '../utils/customResponse.utils';
 import { Express, Response, Request, NextFunction } from 'express';
+import { CustomErrorInterface } from '../typescript/interfaces/customError.interface';
 
 // ======= list of error types -->
 const ErrorList = [
@@ -18,41 +19,48 @@ export default (app: Express) => {
   });
 
   // ======= Error Routes -->
-  app.use((error: any, req: Request, res: Response, next: NextFunction) => {
-    if (error.name === 'CustomError') {
-      return res
-        .status(error.status)
-        .send(new CustomResponse(error.message, null, false));
-    }
+  app.use(
+    (
+      error: CustomErrorInterface,
+      req: Request,
+      res: Response,
+      next: NextFunction
+    ) => {
+      if (error.name === 'CustomError') {
+        return res
+          .status(error.status)
+          .send(new CustomResponse(error.message, null, false));
+      }
 
-    if (error.name === 'AuthError') {
-      return res
-        .status(error.status)
-        .send(new CustomResponse(error.message, null, false));
-    }
+      if (error.name === 'AuthError') {
+        return res
+          .status(error.status)
+          .send(new CustomResponse(error.message, null, false));
+      }
 
-    if (error.name === 'MongoError') {
-      return res
-        .status(error.status)
-        .send(new CustomResponse(error.message, null, false));
-    }
+      if (error.name === 'MongoError') {
+        return res
+          .status(error.status)
+          .send(new CustomResponse(error.message, null, false));
+      }
 
-    if (ErrorList.includes(error.name)) {
-      return res
-        .status(400)
-        .send(new CustomResponse(error.message, null, false));
-    }
+      if (ErrorList.includes(error.name)) {
+        return res
+          .status(400)
+          .send(new CustomResponse(error.message, null, false));
+      }
 
-    return res
-      .status(500)
-      .send(
-        new CustomResponse(
-          error.message || 'Internal server error',
-          null,
-          false
-        )
-      );
-  });
+      return res
+        .status(500)
+        .send(
+          new CustomResponse(
+            error.message || 'Internal server error',
+            null,
+            false
+          )
+        );
+    }
+  );
 
   return app;
 };

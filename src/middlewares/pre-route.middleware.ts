@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import { Express } from 'express';
 import AppRouter from '../routes/router';
+import ErrorMiddleware from './Error.middleware';
 
 const preRoute = (app: Express): void => {
   !app &&
@@ -17,6 +18,9 @@ const preRoute = (app: Express): void => {
       .use(helmet())
       .use(morgan('[:method - :status] :url :response-time ms'))
       .use(AppRouter)
+
+  // Add error middleware
+  app && ErrorMiddleware(app);
 };
 
 export default preRoute;

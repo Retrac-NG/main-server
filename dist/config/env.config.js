@@ -8,4 +8,5 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 exports.env = {
     PORT: process.env.PORT,
+    MONGO_URL: process.env.MONGO_URL,
 };
