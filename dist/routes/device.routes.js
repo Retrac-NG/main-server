@@ -4,6 +4,6 @@ const express_1 = require("express");
 const DeviceRoutes = (0, express_1.Router)();
 // prettier-ignore
 DeviceRoutes
-    .route('/action')
+    .route('/item')
     .get();
 exports.default = DeviceRoutes;

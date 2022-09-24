@@ -4,7 +4,7 @@ const UserRoutes = Router();
 
 // prettier-ignore
 UserRoutes
-    .route('/action')
+    .route('/user')
     .get()
 
 export default UserRoutes;

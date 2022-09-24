@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: controllers/user.controller.js</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.3/fuse.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="utilities">
+        <div id="search">
+            <input type="text" id="search-box" placeholder="Search"><br>
+            <div id="search-results" style="display: none;"></div>
+        </div>
+        <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
+    </div>
+    <hr>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><a href="CustomError.html">CustomError</a></li><li><span class="small-icon C">C</span><a href="CustomResponse.html">CustomResponse</a></li><li><span class="small-icon C">C</span><a href="Response.html">Response</a></li><li><span class="small-icon C">C</span><b><a href="user_ctrl.html">user_ctrl</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="user_ctrl.html#CREATE">CREATE</a></li><li><span class="small-icon F">F</span><a href="user_ctrl.html#DELETE">DELETE</a></li><li><span class="small-icon F">F</span><a href="user_ctrl.html#GET">GET</a></li><li><span class="small-icon F">F</span><a href="user_ctrl.html#GET_BY_ID">GET_BY_ID</a></li><li><span class="small-icon F">F</span><a href="user_ctrl.html#UPDATE">UPDATE</a></li><li><span class="small-icon F">F</span><a href="user_ctrl.html#UPDATE_BY_ID">UPDATE_BY_ID</a></li></ul></li></ul><h4>Global</h4><ul><li><a href="global.html#asyncHandler">asyncHandler</a></li></ul>
+</nav>
+
+<div id="main">
+    <div class="burger">
+        <div class="burger-line-1"></div>
+        <div class="burger-line-2"></div>
+        <div class="burger-line-3"></div>
+    </div>
+
+    <h1 class="page-title">Source: controllers/user.controller.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+var __awaiter = (this &amp;&amp; this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this &amp;&amp; this.__importDefault) || function (mod) {
+    return (mod &amp;&amp; mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const customError_utils_1 = __importDefault(require("../utils/customError.utils"));
+/**
+ * User controller for route handling
+ * @category Controllers
+ * @example &lt;caption>Using the controller for sample route&lt;/caption>
+ * const user_ctrl = require('path/to/controller')
+ *
+ * const UserRoute = express.Router()
+ * UserRoute
+ * .route('/api/users')
+ * .use(user_ctrl.CREATE)
+ */
+class user_ctrl {
+    /**
+     *
+     * @param {Request} req - request Object
+     * @param {CustomResponseInterface} res - CustomResponse Object
+     * @returns Newly created user
+     */
+    CREATE(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const userData = req.body;
+            const queryData = ''; // await userService.CREATE(userData);
+            console.info(queryData);
+            res.created(queryData, 'New user');
+        });
+    }
+    /**
+     *
+     * @param {Request} req - request Object
+     * @param {CustomResponseInterface} res - CustomResponse Object
+     * @returns List of all users
+     */
+    GET(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const queryData = ''; // await userService.GET();
+            res.found(queryData, 'All users');
+        });
+    }
+    /**
+     *
+     * @param {Request} req - request Object
+     * @param {CustomResponseInterface} res - CustomResponse Object
+     * @returns Single user by ID
+     */
+    GET_BY_ID(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const userId = req.params.id;
+            const queryData = ''; // await userService.GET_BY_ID(userId);
+            // ======= check for null data -->
+            queryData === null
+                ? next(new customError_utils_1.default(`No user found with ID ${userId}`, 404))
+                : res.found(queryData, `User with id ${userId || null}`);
+        });
+    }
+    /**
+     *
+     * @param {Request} req - request Object
+     * @param {CustomResponseInterface} res - CustomResponse Object
+     * @returns update stats of all users
+     */
+    UPDATE(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const updateData = req.body;
+            const queryData = ''; //  await userService.UPDATE(updateData);
+            res.updated(queryData, 'All users');
+        });
+    }
+    /**
+     *
+     * @param {Request} req - request Object
+     * @param {CustomResponseInterface} res - CustomResponse Object
+     * @returns Updated user
+     */
+    UPDATE_BY_ID(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const userId = req.params.id;
+            const updateData = req.body;
+            const queryData = ''; //  await userService.UPDATE_BY_ID(userId, updateData);
+            res.updated(queryData, 'Single user');
+        });
+    }
+    /**
+     *
+     * @param {Request} req - request Object
+     * @param {CustomResponseInterface} res - CustomResponse Object
+     * @returns Delete details of deleted user
+     */
+    DELETE(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const userId = req.params.id;
+            const queryData = ''; //  await userService.DELETE(userId);
+            // ======= check if delete count is more than 0 -->
+            queryData === null
+                ? next(new customError_utils_1.default('No found document to be deleted', 404))
+                : res.deleted(queryData, userId || 'Single user');
+        });
+    }
+}
+exports.default = new user_ctrl();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Sat Sep 24 2022 15:42:11 GMT+0100 (West Africa Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+</body>
+</html>

@@ -4,6 +4,6 @@ const express_1 = require("express");
 const UserRoutes = (0, express_1.Router)();
 // prettier-ignore
 UserRoutes
-    .route('/action')
+    .route('/user')
     .get();
 exports.default = UserRoutes;

@@ -3,8 +3,8 @@
     "allowUnknownTags": ["category"]
   },
   "source": {
-    "include": ["./src"],
-    "includePattern": ".ts$",
+    "include": ["./dist"],
+    "includePattern": ".js$",
     "excludePattern": "(node_modules/|docs)"
   },
   "plugins": [

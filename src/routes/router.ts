@@ -1,5 +1,5 @@
 import UserRoutes from './user.routes';
-import DeviceRoutes from './device.routes';
+import AssetRoutes from './asset.routes';
 import { Router, Request, Response } from 'express';
 
 const AppRouter = Router();
@@ -12,6 +12,6 @@ AppRouter.get('/', (req: Request, res: Response) => {
 // prettier-ignore
 AppRouter
     .use(UserRoutes)
-    .use(DeviceRoutes)
+    .use(AssetRoutes)
 
 export default AppRouter;

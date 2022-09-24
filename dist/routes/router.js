@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const user_routes_1 = __importDefault(require("./user.routes"));
-const device_routes_1 = __importDefault(require("./device.routes"));
+const asset_routes_1 = __importDefault(require("./asset.routes"));
 const express_1 = require("express");
 const AppRouter = (0, express_1.Router)();
 // Root
@@ -14,5 +14,5 @@ AppRouter.get('/', (req, res) => {
 // prettier-ignore
 AppRouter
     .use(user_routes_1.default)
-    .use(device_routes_1.default);
+    .use(asset_routes_1.default);
 exports.default = AppRouter;
