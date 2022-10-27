@@ -57,7 +57,7 @@ const UserSchema = new mongoose_1.Schema({
         },
     ],
     reported: { type: Number, default: 0 },
-    found: { type: Number, defaulltL: 0 },
+    found: { type: Number, default: 0 },
 }, { timestamps: true, collection: 'users' });
 const UserModel = mongoose_1.default.model('users', UserSchema);
 exports.default = UserModel;
