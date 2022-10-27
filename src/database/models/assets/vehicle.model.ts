@@ -1,7 +1,8 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema, Model } from 'mongoose';
+import { VehicleType } from '../../../typescript/types/asset.types';
 
 // TODO: Add jsdoc documentation
-const CarSchema: Schema = new Schema(
+const CarSchema: Schema<VehicleType> = new Schema(
   {
     status: {
       type: String,
@@ -13,8 +14,8 @@ const CarSchema: Schema = new Schema(
 
     brand: String,
     model: String,
-    Year: String,
-    plate_no: { ttype: String, required: true },
+    year: Number,
+    plate_no: { type: String, required: true },
     chasis_no: String,
     colour: String,
     markings: { type: String, default: 'none' },
@@ -28,6 +29,6 @@ const CarSchema: Schema = new Schema(
   { collection: 'cars', timestamps: true }
 );
 
-const CarModel = mongoose.model('cars', CarSchema);
+const vehicleModel: Model<VehicleType> = mongoose.model('cars', CarSchema);
 
-export default CarModel;
+export default vehicleModel;
