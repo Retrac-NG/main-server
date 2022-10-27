@@ -30,7 +30,7 @@ class asset_ctrl {
         ? 'Created vehicle asset' // call vehicle serveice
         : 'Created Gadget asset'; // call gadget service
 
-    res.created(queryData, 'Asset');
+    res.created!(queryData, 'Asset');
   }
 
   /**
@@ -50,7 +50,7 @@ class asset_ctrl {
         ? 'Updated a Vehicle asset'
         : 'updated a gadget asset';
 
-    res.updated(queryData, 'Asset');
+    res.updated!(queryData, 'Asset');
   }
 
   /**
@@ -66,7 +66,7 @@ class asset_ctrl {
     if (category === 'cars' || 'bikes') allAssets = 'ALl vehicles found';
     if (category === 'laptops' || 'phones') allAssets = 'All gadgets found';
 
-    res.found(allAssets, 'Vehicles');
+    res.found!(allAssets, 'Vehicles');
   }
 
   /**
@@ -85,7 +85,7 @@ class asset_ctrl {
         ? 'deleted one vehicle'
         : 'deleted one gadget';
 
-    res.deleted(queryData, 'Asset');
+    res.deleted!(queryData, 'Asset');
   }
 }
 

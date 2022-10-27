@@ -25,7 +25,7 @@ class user_ctrl {
     const userData = req.body;
     const queryData = await userService.CREATE(userData);
     console.info(queryData);
-    res.created(queryData, 'New user');
+    res.created!(queryData, 'New user');
   }
 
   /**
@@ -36,7 +36,7 @@ class user_ctrl {
    */
   async GET(req: Request, res: CustomResponseInterface) {
     const queryData = await userService.GET();
-    res.found(queryData, 'All users');
+    res.found!(queryData, 'All users');
   }
 
   /**
@@ -56,7 +56,7 @@ class user_ctrl {
     // ======= check for null data -->
     queryData === null
       ? next(new CustomError(`No user found with ID ${userId}`, 404))
-      : res.found(queryData, `User with id ${userId || null}`);
+      : res.found!(queryData, `User with id ${userId || null}`);
   }
 
   /**
@@ -68,7 +68,7 @@ class user_ctrl {
   async UPDATE(req: Request, res: CustomResponseInterface) {
     const updateData = req.body;
     const queryData = await userService.UPDATE(updateData);
-    res.updated(queryData, 'All users');
+    res.updated!(queryData, 'All users');
   }
 
   /**
@@ -81,7 +81,7 @@ class user_ctrl {
     const userId = req.params.id;
     const updateData = req.body;
     const queryData = await userService.UPDATE_BY_ID(userId, updateData);
-    res.updated(queryData, 'Single user');
+    res.updated!(queryData, 'Single user');
   }
 
   /**
@@ -97,7 +97,7 @@ class user_ctrl {
     // ======= check if delete count is more than 0 -->
     queryData === null
       ? next(new CustomError('No found document to be deleted', 404))
-      : res.deleted(queryData, userId || 'Single user');
+      : res.deleted!(queryData, userId || 'Single user');
   }
 }
 
