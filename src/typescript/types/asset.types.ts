@@ -2,9 +2,10 @@
 export type AssetType = {
   brand: string;
   model: string;
+  year: number;
   description: string; // TODO: add to models
   status: 'lost' | 'found' | 'safe' | 'misplaced';
-  category: 'Cars' | 'Laptops' | 'Bikes' | 'Phones'; // TODO: Add to models
+  category: 'cars' | 'captops' | 'bikes' | 'phones'; // TODO: Add to models
   images: [string];
   colour: string;
   location: {
@@ -16,7 +17,7 @@ export type AssetType = {
 };
 
 /* ====== vehicle type */
-export type VehjicleType = AssetType & {
+export type VehicleType = AssetType & {
   vin: string;
   year?: string;
   plate_no: string;

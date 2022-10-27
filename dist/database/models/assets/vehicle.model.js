@@ -34,8 +34,8 @@ const CarSchema = new mongoose_1.Schema({
     vin: { type: String, required: true },
     brand: String,
     model: String,
-    Year: String,
-    plate_no: { ttype: String, required: true },
+    year: Number,
+    plate_no: { type: String, required: true },
     chasis_no: String,
     colour: String,
     markings: { type: String, default: 'none' },
@@ -45,5 +45,5 @@ const CarSchema = new mongoose_1.Schema({
         town: { type: String, required: true },
     },
 }, { collection: 'cars', timestamps: true });
-const CarModel = mongoose_1.default.model('cars', CarSchema);
-exports.default = CarModel;
+const vehicleModel = mongoose_1.default.model('cars', CarSchema);
+exports.default = vehicleModel;

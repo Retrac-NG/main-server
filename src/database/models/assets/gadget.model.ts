@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema, Model } from 'mongoose';
 import { GadgetType } from '../../../typescript/types/asset.types';
 
 // TODO: Add jsdoc documentation
@@ -28,6 +28,6 @@ const GadgetSchema: Schema<GadgetType> = new Schema(
   { collection: 'phones', timestamps: true }
 );
 
-const GadgetModel = mongoose.model('phones', GadgetSchema);
+const GadgetModel: Model<GadgetType> = mongoose.model('phones', GadgetSchema);
 
 export default GadgetModel;
