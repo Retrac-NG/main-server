@@ -1,4 +1,4 @@
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 export type UserType = Document & {
   first_name: string;
@@ -8,7 +8,7 @@ export type UserType = Document & {
   password: string | any;
   phone: number;
   address: string;
-  assets?: [any];
+  assets?: [Types.ObjectId];
   reported?: number;
   found?: number;
 };

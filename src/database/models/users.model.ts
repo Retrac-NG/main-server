@@ -42,7 +42,7 @@ const UserSchema: Schema = new Schema<UserType>(
     ],
 
     reported: { type: Number, default: 0 },
-    found: { type: Number, defaulltL: 0 },
+    found: { type: Number, default: 0 },
   },
   { timestamps: true, collection: 'users' }
 );
