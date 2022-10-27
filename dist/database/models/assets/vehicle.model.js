@@ -25,7 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 // TODO: Add jsdoc documentation
-const CarSchema = new mongoose_1.Schema({
+const vehicleSchema = new mongoose_1.Schema({
     status: {
         type: String,
         required: true,
@@ -45,5 +45,5 @@ const CarSchema = new mongoose_1.Schema({
         town: { type: String, required: true },
     },
 }, { collection: 'cars', timestamps: true });
-const vehicleModel = mongoose_1.default.model('cars', CarSchema);
+const vehicleModel = mongoose_1.default.model('cars', vehicleSchema);
 exports.default = vehicleModel;
