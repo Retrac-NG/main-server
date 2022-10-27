@@ -1,5 +1,5 @@
 import CustomResponse from '../utils/customResponse.utils';
-import { Express, Request, NextFunction, Router } from 'express';
+import { Request, NextFunction, Router } from 'express';
 import { CustomResponseInterface } from '../typescript/interfaces/customResponse.interface';
 
 /**
