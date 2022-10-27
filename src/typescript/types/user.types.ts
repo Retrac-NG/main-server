@@ -1,9 +1,11 @@
-export type UserType = {
+import { Document } from 'mongoose';
+
+export type UserType = Document & {
   first_name: string;
-  lastname: string;
+  last_name: string;
   other_name?: string;
-  email: string;
-  password: string;
+  email: string | any;
+  password: string | any;
   phone: number;
   address: string;
   assets?: [any];

@@ -1,6 +1,7 @@
 import mongoose, { Schema, Model } from 'mongoose';
+import { UserType } from '../../typescript/types/user.types';
 
-const UserSchema = new Schema(
+const UserSchema: Schema = new Schema<UserType>(
   {
     first_name: { type: String, required: [true, 'First name is required'] },
     last_name: { type: String, required: [true, 'Last name is required'] },
@@ -46,6 +47,6 @@ const UserSchema = new Schema(
   { timestamps: true, collection: 'users' }
 );
 
-const UserModel = mongoose.model('users', UserSchema);
+const UserModel = mongoose.model<UserType>('users', UserSchema);
 
 export default UserModel;

@@ -2,7 +2,7 @@ import mongoose, { Schema, Model } from 'mongoose';
 import { VehicleType } from '../../../typescript/types/asset.types';
 
 // TODO: Add jsdoc documentation
-const CarSchema: Schema<VehicleType> = new Schema(
+const vehicleSchema: Schema = new Schema<VehicleType>(
   {
     status: {
       type: String,
@@ -29,6 +29,6 @@ const CarSchema: Schema<VehicleType> = new Schema(
   { collection: 'cars', timestamps: true }
 );
 
-const vehicleModel: Model<VehicleType> = mongoose.model('cars', CarSchema);
+const vehicleModel = mongoose.model<VehicleType>('cars', vehicleSchema);
 
 export default vehicleModel;
