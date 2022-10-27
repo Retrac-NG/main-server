@@ -1,6 +1,10 @@
 /* ====== General info for all assets */
 export type AssetType = {
-  status: 'lost' | 'found' | 'safe';
+  brand: string;
+  model: string;
+  description: string; // TODO: add to models
+  status: 'lost' | 'found' | 'safe' | 'misplaced';
+  category: 'Cars' | 'Laptops' | 'Bikes' | 'Phones'; // TODO: Add to models
   images: [string];
   colour: string;
   location: {
@@ -8,42 +12,19 @@ export type AssetType = {
     lga: string;
     town: string;
   };
-  markings?: String | 'none';
+  markings?: string | 'none';
 };
 
-/* ====== Car type */
-export type CarType = AssetType & {
+/* ====== vehicle type */
+export type VehjicleType = AssetType & {
   vin: string;
-  brand?: string;
-  model?: string;
   year?: string;
   plate_no: string;
   chasis_no?: string;
 };
 
-/* ====== bike asset type */
-export type BikeType = AssetType & {
-  vin: string;
-  brand: string;
-  model: string;
-  type: string;
-  plate_no: string;
-};
-
-/* ====== phone asset type */
-export type PhoneType = AssetType & {
-  brand: string;
-  model: string;
-  year: string;
-  receipt: string;
-  imei: [imei_1: string, imei_2: string];
-  serial_no: string;
-};
-
-/* ====== laptop asset type */
-export type LaptopType = AssetType & {
-  brand: string;
-  model: string;
+/* ====== gadget asset type */
+export type GadgetType = AssetType & {
   year: string;
   receipt: string;
   imei: [imei_1: string, imei_2: string];

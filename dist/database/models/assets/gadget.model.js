@@ -24,18 +24,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const CarSchema = new mongoose_1.Schema({
+// TODO: Add jsdoc documentation
+const GadgetSchema = new mongoose_1.Schema({
     status: {
         type: String,
         required: true,
         enum: ['lost', 'found', 'safe'],
     },
-    vin: { type: String, required: true },
-    brand: String,
     model: String,
-    Year: String,
-    plate_no: { ttype: String, required: true },
-    chasis_no: String,
+    year: String,
+    receipt: String,
+    imei: [String],
+    serial_no: String,
     colour: String,
     markings: { type: String, default: 'none' },
     location: {
@@ -43,6 +43,6 @@ const CarSchema = new mongoose_1.Schema({
         lga: { type: String, required: true },
         town: { type: String, required: true },
     },
-}, { collection: 'cars', timestamps: true });
-const CarModel = mongoose_1.default.model('cars', CarSchema);
-exports.default = CarModel;
+}, { collection: 'phones', timestamps: true });
+const GadgetModel = mongoose_1.default.model('phones', GadgetSchema);
+exports.default = GadgetModel;
