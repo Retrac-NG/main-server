@@ -19,14 +19,12 @@ export type AssetType = {
 /* ====== vehicle type */
 export type VehicleType = AssetType & {
   vin: string;
-  year?: string;
   plate_no: string;
   chasis_no?: string;
 };
 
 /* ====== gadget asset type */
 export type GadgetType = AssetType & {
-  year: string;
   receipt: string;
   imei: [imei_1: string, imei_2: string];
   serial_no: string;
