@@ -2,8 +2,8 @@ import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import { Express } from 'express';
-import AppRouter from '../routes/router';
-import ErrorMiddleware from './Error.middleware';
+import AppRouter from '@/routes/router';
+import ErrorMiddleware from '@/middlewares/Error.middleware';
 
 /**
  *

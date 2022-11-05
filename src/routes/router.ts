@@ -1,5 +1,5 @@
-import UserRoutes from './user.routes';
-import AssetRoutes from './asset.routes';
+import UserRoutes from '@/routes/user.routes';
+import AssetRoutes from '@/routes/asset.routes';
 import { Router, Request, Response } from 'express';
 
 const AppRouter = Router();
