@@ -1,5 +1,5 @@
 import mongoose, { Schema, Model } from 'mongoose';
-import { GadgetType } from '../../../typescript/types/asset.types';
+import { GadgetType } from '@/types/asset.types'
 
 // TODO: Add jsdoc documentation
 const GadgetSchema: Schema = new Schema<GadgetType>(
