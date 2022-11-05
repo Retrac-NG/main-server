@@ -1,6 +1,6 @@
-import CustomResponse from '../utils/customResponse.utils';
+import CustomResponse from '@/utils/customResponse.utils';
 import { Express, Response, Request, NextFunction } from 'express';
-import { CustomErrorInterface } from '../typescript/interfaces/customError.interface';
+import { CustomErrorInterface } from '@/interfaces/customError.interface';
 
 // ======= list of error types -->
 const ErrorList = [
