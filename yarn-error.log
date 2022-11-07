@@ -1,8 +1,15 @@
 Arguments: 
+<<<<<<< HEAD
   /home/lakecombs/.nvm/versions/node/v16.15.0/bin/node /usr/share/yarn/bin/yarn.js install
 
 PATH: 
   /home/lakecombs/.nvm/versions/node/v16.15.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+=======
+  c:\program files\nodejs\node.exe C:\Users\alawo\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add jsonwebtoken bycrypt
+
+PATH: 
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\wbem;C:\WINDOWS\system32\windowspowershell\v1.0\;c:\python310\scripts\;c:\python310\;c:\windows\system32;c:\windows;c:\windows\system32\wbem;c:\windows\system32\windowspowershell\v1.0\;c:\windows\system32\openssh\;c:\program files (x86)\nvidia corporation\physx\common;c:\programdata\chocolatey\bin;c:\program files\git\cmd;c:\program files\docker\docker\resources\bin;c:\programdata\dockerdesktop\version-bin;c:\programdata\composersetup\bin;c:\program files\dotnet\;c:\program files\nodejs\;c:\program files\nvidia corporation\nvidia nvdlisr;c:\program files\microsoft sql server\150\tools\binn\;c:\program files\microsoft sql server\client sdk\odbc\170\tools\binn\;c:\program files\nvidia corporation\nsight compute 2022.2.1\;C:\WINDOWS\system32\openssh\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\alawo\AppData\Local\Microsoft\WindowsApps;C:\Users\alawo\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\tools\dart-sdk\bin;C:\Users\alawo\AppData\Roaming\Pub\Cache\bin;C:\Program Files\dart-sdk\bin;c:\php8;C:\Users\alawo\AppData\Roaming\Composer\vendor\bin;C:\Users\alawo\AppData\Roaming\npm;C:\Users\alawo\.dotnet\tools;C:\flutter\bin;C:\Users\alawo\AppData\Local\Pub\Cache\bin
+>>>>>>> 4dbec6f0b6938b81bac2897584ebf918cece4e96
 
 Yarn version: 
   1.22.19
@@ -14,10 +21,24 @@ Platform:
   linux x64
 
 Trace: 
+<<<<<<< HEAD
   Error: https://registry.yarnpkg.com/hash-sum/-/hash-sum-1.0.2.tgz: ETIMEDOUT
       at Timeout._onTimeout (/usr/share/yarn/lib/cli.js:141550:19)
       at listOnTimeout (node:internal/timers:559:17)
       at processTimers (node:internal/timers:502:7)
+=======
+  Error: https://registry.yarnpkg.com/bycrypt: Not found
+      at Request.params.callback [as _callback] (C:\Users\alawo\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66145:18)
+      at Request.self.callback (C:\Users\alawo\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140890:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (C:\Users\alawo\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141862:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (C:\Users\alawo\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141784:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1345:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+>>>>>>> 4dbec6f0b6938b81bac2897584ebf918cece4e96
 
 npm manifest: 
   {
