@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 const helmet_1 = __importDefault(require("helmet"));
-const router_1 = __importDefault(require("@/routes/router"));
-const Error_middleware_1 = __importDefault(require("@/middlewares/Error.middleware"));
+const router_1 = __importDefault(require("../routes/router"));
+const Error_middleware_1 = __importDefault(require("../middlewares/Error.middleware"));
 /**
  *
  * Adds all middleware to the

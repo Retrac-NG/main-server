@@ -1,5 +1,5 @@
 import { Request, NextFunction } from 'express';
-import { CustomResponseInterface } from '@/interfaces/customResponse.interface';
+import { CustomResponseInterface } from '../typescript/interfaces/customResponse.interface';
 
 /**
  * Asset controller for route handling

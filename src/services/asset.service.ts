@@ -1,6 +1,6 @@
-import GadgetModel from '@/models/assets/gadget.model';
-import vehicleModel from '@/models/assets/vehicle.model';
-import { GadgetType, VehicleType } from '@/types/asset.types';
+import GadgetModel from '../database/models/assets/gadget.model';
+import vehicleModel from '../database/models/assets/vehicle.model';
+import { GadgetType, VehicleType } from 'src/typescript/types/asset.types';
 
 /**
  * Asset service class

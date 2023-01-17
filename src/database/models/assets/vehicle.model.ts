@@ -1,5 +1,5 @@
 import mongoose, { Schema, Model } from 'mongoose';
-import { VehicleType } from '@/types/asset.types';
+import { VehicleType } from '../../../typescript/types/asset.types';
 
 // TODO: Add jsdoc documentation
 const vehicleSchema: Schema = new Schema<VehicleType>(

@@ -1,5 +1,5 @@
-import User from '@/models/users.model';
-import { UserType } from '@/types/user.types';
+import User from '../database/models/users.model';
+import { UserType } from '../typescript/types/user.types';
 
 /**
  * User service class

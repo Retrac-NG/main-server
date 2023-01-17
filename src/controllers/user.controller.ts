@@ -1,7 +1,7 @@
 import { Request, NextFunction } from 'express';
 import userService from '../services/user.service';
 import CustomError from '../utils/customError.utils';
-import { CustomResponseInterface } from '@/interfaces/customResponse.interface';
+import { CustomResponseInterface } from '../typescript/interfaces/customResponse.interface';
 
 /**
  * User controller for route handling

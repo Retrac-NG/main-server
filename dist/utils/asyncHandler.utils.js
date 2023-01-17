@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const customError_utils_1 = __importDefault(require("@/utils/customError.utils"));
+const customError_utils_1 = __importDefault(require("../utils/customError.utils"));
 /**
  * Wrapper function that takes in another function (most likely
  * a controller) and tries to resolve it and catches error in

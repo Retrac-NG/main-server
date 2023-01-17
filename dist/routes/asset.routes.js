@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const asset_controller_1 = __importDefault(require("@/controllers/asset.controller"));
-const asyncHandler_utils_1 = __importDefault(require("@/utils/asyncHandler.utils"));
+const asset_controller_1 = __importDefault(require("../controllers/asset.controller"));
+const asyncHandler_utils_1 = __importDefault(require("../utils/asyncHandler.utils"));
 const AssetRoutes = (0, express_1.Router)();
 // prettier-ignore
 AssetRoutes

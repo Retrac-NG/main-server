@@ -1,4 +1,4 @@
-import CustomError from '@/utils/customError.utils'
+import CustomError from '../utils/customError.utils'
 import { Request, Response, NextFunction } from 'express';
 
 /**
