@@ -18,4 +18,9 @@ UserRouter
         .post(Auth.VERIFY, asyncHandler(userController.GET_BY_ID))
         .patch(Auth.VERIFY, asyncHandler(userController.UPDATE_BY_ID));
 
+// prettier-ignore
+UserRouter
+    .route('/users-login')
+        .post(asyncHandler(userController.LOGIN))
+
 export default UserRouter;

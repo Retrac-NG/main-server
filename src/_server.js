@@ -12,3 +12,11 @@ app.listen(env.PORT, (error) => {
   if (error) throw new Error('There was an error starting the server');
   console.log(`[⚡Server]: Server running on port - ${env.PORT}`);
 });
+
+process.on('uncaughtException', (error) => {
+  console.log(error.message);
+});
+
+process.on('unhandledRejection', (error) => {
+  console.log(error.message);
+});

@@ -31,6 +31,13 @@ class UserController {
     const query = await userServices.UPDATE_BY_ID(updateData, id);
     responder(res, 200, 'ok', 'User updated', query);
   }
+
+  async LOGIN(req, res) {
+    const userDetails = req.body;
+    console.log(userDetails);
+    const query = await userServices.LOGIN(userDetails);
+    responder(res, 200, 'ok', 'User Authenticated', query);
+  }
 }
 
 export default new UserController();

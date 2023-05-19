@@ -1,9 +1,13 @@
+import gadgetService from '../services/gadgetService.js';
 import { responder } from '../utils/responder.js';
 
 class GadgetController {
   async CREATE(req, res) {
-    const newGadgetData = req.body;
-    const query = 'New Gadget';
+    const { assetData, userId, location } = req.body;
+    const query = await gadgetService.CREATE(
+      { ...assetData, ...location },
+      userId
+    );
     responder(res, 200, 'ok', 'created new Gadget', query);
   }
 
