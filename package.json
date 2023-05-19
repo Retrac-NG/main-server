@@ -5,7 +5,8 @@
   "type": "module",
   "main": "src/_server.js",
   "scripts": {
-    "dev": "nodemon ./src/_server.js"
+    "dev": "nodemon ./src/_server.js",
+    "start": "node ./src/_server.js"
   },
   "repository": {
     "type": "git",

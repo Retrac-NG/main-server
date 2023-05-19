@@ -61,6 +61,18 @@ class UserService {
     );
     return updatedUser;
   }
+
+  //=============================================>
+  async LOGIN(userDetails) {
+    const user = await UserModel.findOne({ email: userDetails.email }).lean();
+    const { password } = userDetails;
+
+    const authenticatedUser = bcrypt.compareSync(password, user.password);
+
+    if (!authenticatedUser) return false;
+
+    return tokenizer({ id: user._id });
+  }
 }
 
 export default new UserService();

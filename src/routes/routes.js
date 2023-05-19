@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import AssetRouter from './asset.routes.js';
 import UserRouter from './user.routes.js';
 
 const AppRoute = Router();
@@ -10,6 +11,8 @@ AppRoute.route('/').get((req, res) =>
   })
 );
 
-// prettier-igore
-AppRoute.use(UserRouter);
+// prettier-ignore
+AppRoute
+  .use(UserRouter)
+  .use(AssetRouter);
 export default AppRoute;
