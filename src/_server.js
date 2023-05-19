@@ -8,7 +8,7 @@ PreRouteMiddleware(app);
 mongoConnect();
 
 // -- Start the server  -->
-app.listen(env.PORT, (error) => {
+app.listen(process.env.PORT || env.PORT, (error) => {
   if (error) throw new Error('There was an error starting the server');
   console.log(`[⚡Server]: Server running on port - ${env.PORT}`);
 });
